@@ -1,0 +1,20 @@
+---
+// src/components/ThemeProvider.astro
+import { useSettings } from "../lib/useSettings";
+---
+
+<style lang="postcss">
+  :root {
+    --primary: {colorScheme.primary.hex};
+    --secondary: {colorScheme.secondary.hex};
+    --accent: {colorScheme.accent.hex};
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family={fonts.primary}&display=swap');
+
+  body {
+    font-family: '{fonts.primary}', sans-serif;
+  }
+</style>
+
+<slot />
