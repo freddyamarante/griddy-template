@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [
     sanity({
       projectId: 'jcexkvnt',
-      dataset: 'production',
+      dataset: 'development',
       useCdn: false,
       studioBasePath: '/studio'
     }), 

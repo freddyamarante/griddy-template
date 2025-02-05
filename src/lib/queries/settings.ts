@@ -1,7 +1,7 @@
-import { client } from '../client'
-import type { SanityDocument } from '../client' 
+// settings.ts
+import { client, type SanityDocument } from '../client';
 
-export interface SiteSettings extends SanityDocument {
+export interface Settings extends SanityDocument {
   colorScheme: {
     primary: string;
     secondary: string;
@@ -13,8 +13,8 @@ export interface SiteSettings extends SanityDocument {
   };
 }
 
-export const getSiteSettings = async (): Promise<SiteSettings> => {
-  const query = `*[_type == "siteSettings"][0] {
+export const getSettings = async (): Promise<Settings> => {
+  const query = `*[_id == "settings"] {
     _id,
     _type,
     colorScheme {
@@ -31,15 +31,14 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
   return client.fetch(query);
 };
 
-export const useSettings = async (): Promise<SiteSettings> => {
+export const useSettings = async (): Promise<Settings> => {
   try {
-    const settings = await getSiteSettings();
+    const settings = await getSettings();
     
     if (!settings) {
-      throw new Error('No site settings found');
+      throw new Error('No settings found');
     }
 
-    // Valores por defecto
     return {
       ...settings,
       colorScheme: {

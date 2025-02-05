@@ -3,7 +3,7 @@ import { createClient } from '@sanity/client';
 
 export const client = createClient({
   projectId: 'jcexkvnt',
-  dataset: 'production',
+  dataset: 'development',
   useCdn: true,
   apiVersion: '2023-10-01',
   perspective: 'published'

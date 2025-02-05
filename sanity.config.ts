@@ -3,22 +3,21 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {colorInput} from '@sanity/color-input'
-import {singletonTools} from 'sanity-plugin-singleton-tools';
 
-import {schemaTypes} from './src/schemas'
+import {schemaTypes} from './src/studio/schemas'
+import {structure} from './src/studio/structure'
 
 export default defineConfig({
   name: 'default',
   title: 'griddy-template',
 
   projectId: 'jcexkvnt',
-  dataset: 'production',
+  dataset: 'development',
 
   plugins: [
-    structureTool(), 
+    structureTool({structure}), 
     visionTool(), 
     colorInput(), 
-    singletonTools()
   ],
 
   schema: {

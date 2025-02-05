@@ -1,10 +1,11 @@
+// schemas/settings.ts
+import { defineField, defineType } from 'sanity';
 
-import { defineField } from "sanity"
-
-export default defineField({
-  name: 'siteSettings',
-  title: 'Site Settings',
+export default defineType({
+  name: 'settings',
+  title: 'Settings',
   type: 'document',
+  // options: { singleton: true },
   fields: [
     defineField({
       name: 'storeName',
@@ -42,11 +43,5 @@ export default defineField({
         defineField({ name: 'customFontUrl', type: 'url' })
       ]
     }),
-    defineField({
-      name: 'enabledSections',
-      title: 'Enabled Sections',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'section' }] }]
-    })
   ]
-})
+});

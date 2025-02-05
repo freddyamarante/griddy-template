@@ -1,5 +1,5 @@
 import section from "./singletons/section";
-import siteSettings from "./singletons/siteSettings";
+import siteSettings from "./singletons/settings";
 
 const sections: any[] = [
 
@@ -10,7 +10,6 @@ const footers: any[] = [
 ]
 
 const singletons: any[] = [
-  section,
   siteSettings
 ]
 
