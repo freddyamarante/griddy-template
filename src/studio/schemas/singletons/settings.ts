@@ -5,7 +5,6 @@ export default defineType({
   name: 'settings',
   title: 'Settings',
   type: 'document',
-  // options: { singleton: true },
   fields: [
     defineField({
       name: 'storeName',

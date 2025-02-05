@@ -17,7 +17,7 @@ export default defineConfig({
   plugins: [
     structureTool({structure}), 
     visionTool(), 
-    colorInput(), 
+    colorInput(),
   ],
 
   schema: {
