@@ -1,13 +1,14 @@
 ---
-// src/components/ThemeProvider.astro
-import { useSettings } from "../lib/useSettings";
+import { useSettings } from "../lib/queries/settings";
+
+const settings = await useSettings();
 ---
 
 <style lang="postcss">
   :root {
-    --primary: {colorScheme.primary.hex};
-    --secondary: {colorScheme.secondary.hex};
-    --accent: {colorScheme.accent.hex};
+    --primary: {settings.colorScheme.primary};
+    --secondary: {settings.colorScheme.secondary};
+    --accent: {setttings.colorScheme.accent};
   }
 
   @import url('https://fonts.googleapis.com/css2?family={fonts.primary}&display=swap');
@@ -17,4 +18,13 @@ import { useSettings } from "../lib/useSettings";
   }
 </style>
 
-<slot />
+
+<div>
+  <h1>Theme Settings</h1>
+  <p>Primary Color: {settings.colorScheme.primary}</p>
+  <p>Secondary Color: {settings.colorScheme.secondary}</p>
+  <p>Accent Color: {settings.colorScheme.accent}</p>
+  <p>Primary Font: {settings.fonts.primary}</p>
+  
+  <slot />
+</div>
