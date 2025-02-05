@@ -4,6 +4,7 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {colorInput} from '@sanity/color-input'
 import {sanityCommerce, type SanityCommercePluginConfig,} from '@commercelayer/sanity-plugin-commerce';
+import {inlineSvgInput} from '@focus-reactive/sanity-plugin-inline-svg-input'
 
 import {schemaTypes} from './src/studio/schemas'
 import {structure} from './src/studio/structure'
@@ -39,6 +40,7 @@ export default defineConfig({
 
   plugins: [
     structureTool({structure}), 
+    inlineSvgInput(),
     visionTool(), 
     colorInput(),
     sanityCommerce(sanityCommerceConfig)
