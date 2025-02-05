@@ -53,6 +53,9 @@ importers:
       sanity:
         specifier: ^3.74.0
         version: 3.74.0(@emotion/is-prop-valid@1.2.2)(@types/babel__core@7.20.5)(@types/node@22.13.1)(@types/react@19.0.8)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0)
+      sanity-image:
+        specifier: ^1.0.0
+        version: 1.0.0(react@19.0.0)
       tailwindcss:
         specifier: ^4.0.3
         version: 4.0.3
@@ -1567,6 +1570,9 @@ packages:
 
   '@rushstack/ts-command-line@4.23.2':
     resolution: {integrity: sha512-JJ7XZX5K3ThBBva38aomgsPv1L7FV6XmSOcR6HtM7HDFZJkepqT65imw26h9ggGqMjsY0R9jcl30tzKcVj9aOQ==}
+
+  '@sanity-image/url-builder@1.0.0':
+    resolution: {integrity: sha512-PZ8n0FbZgHVYB4uMet8QjMvHLEqrRf+BcXoAUMMrk5OYpRQt1/Vd2hwRbkGhkoXAlD8KlQs9CFryMpXlKZu0Lg==}
 
   '@sanity/asset-utils@2.2.1':
     resolution: {integrity: sha512-dBsZWH5X6ANcvclFRnQT9Y+NNvoWTJZIMKR5HT6hzoRpRb48p7+vWn+wi1V1wPvqgZg2ScsOQQcGXWXskbPbQQ==}
@@ -4627,6 +4633,12 @@ packages:
     resolution: {integrity: sha512-1OOTx/Uw0J3rwNkI4J/4XJfTGb2Rze/gl5jJGRw+M2hRGkp1QEu2wFHiC9adj83ABYthOczBCBpTHHeZluctdw==}
     engines: {node: '>=18.2'}
 
+  sanity-image@1.0.0:
+    resolution: {integrity: sha512-a4JlaYiU5bin7zsZwCCRlkWCyVleL88FOeigAuLkBKiNPYS3px0oAjEBleQnpJNdWs/1aikrwPwhY+VN0PRgpg==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+
   sanity@3.74.0:
     resolution: {integrity: sha512-rQD4vFQmyHioOxCXolcgnXSoi8E5CbPDpJ365jYab2TQpmSgRJsxx4V9C60RC0YjH36I27vJwwFy0FXCOGsrNQ==}
     engines: {node: '>=18'}
@@ -7149,6 +7161,8 @@ snapshots:
       string-argv: 0.3.2
     transitivePeerDependencies:
       - '@types/node'
+
+  '@sanity-image/url-builder@1.0.0': {}
 
   '@sanity/asset-utils@2.2.1': {}
 
@@ -10854,6 +10868,11 @@ snapshots:
   sanity-diff-patch@4.0.0:
     dependencies:
       '@sanity/diff-match-patch': 3.2.0
+
+  sanity-image@1.0.0(react@19.0.0):
+    dependencies:
+      '@sanity-image/url-builder': 1.0.0
+      react: 19.0.0
 
   sanity@3.74.0(@emotion/is-prop-valid@1.2.2)(@types/babel__core@7.20.5)(@types/node@22.13.1)(@types/react@19.0.8)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0):
     dependencies:
