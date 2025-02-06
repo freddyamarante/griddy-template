@@ -47,6 +47,9 @@ importers:
       astro:
         specifier: ^5.2.5
         version: 5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.3)(terser@5.38.0)(typescript@5.7.3)(yaml@2.7.0)
+      groqd:
+        specifier: ^1.0.6
+        version: 1.0.6
       input-slider:
         specifier: ^0.1.12
         version: 0.1.12
@@ -3128,6 +3131,10 @@ packages:
   groq@3.74.1:
     resolution: {integrity: sha512-nQq2qlCTFNhkBZJ4tHY1tXQHEZDlqg/iFOtQIF5PEJNqrTG7/GQrHKwKlTjfcbq+qnJys2t45qVn10uLZAteZA==}
     engines: {node: '>=18'}
+
+  groqd@1.0.6:
+    resolution: {integrity: sha512-i5N3ABPYQtanhHiEGWqVbVBF2HnPt9EANd0gx7nX8n/JqGDuiuWzHtkogEOvi8uCBtqDFuBAuUS3pvjkt721+A==}
+    engines: {node: '>= 14'}
 
   gunzip-maybe@1.4.2:
     resolution: {integrity: sha512-4haO1M4mLO91PW57BMsDFf75UmwoRX0GkdD+Faw+Lr+r/OZrOCS0pIBwOL1xCKQqnQzbNFGgK2V2CpBUPeFNTw==}
@@ -9117,6 +9124,11 @@ snapshots:
       - supports-color
 
   groq@3.74.1: {}
+
+  groqd@1.0.6:
+    dependencies:
+      type-fest: 4.33.0
+      zod: 3.24.1
 
   gunzip-maybe@1.4.2:
     dependencies:
