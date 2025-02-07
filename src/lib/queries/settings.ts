@@ -1,16 +1,34 @@
 // settings.ts
 import { client, type SanityDocument } from '../client';
 
+export interface FontFile {
+  fontFile: {
+    asset: {
+      url: string;
+      extension: string;
+    };
+  };
+  fontName: string;
+  fontWeight: number;
+}
+
 export interface Settings extends SanityDocument {
   colorScheme: {
-    primary: string;
-    secondary: string;
-    accent: string;
+    textColor: string;
+    backgroundColor: string;
+    foregroundColor: string;
+    primaryColor: string;
+    secondaryColor: string;
+    accentColor: string;
+    highlightColor: string;
+    errorColor: string;
+    successColor: string;
+    warningColor: string;
+    borderColor: string;
+    cardBackgroundColor: string;
   };
-  fonts: {
-    primary: string;
-    customFontUrl?: string;
-  };
+  headingFontFiles: FontFile[];
+  secondaryFontFiles: FontFile[];
 }
 
 export const getSettings = async (): Promise<Settings> => {
@@ -22,9 +40,15 @@ export const getSettings = async (): Promise<Settings> => {
       secondary,
       accent
     },
-    fonts {
-      primary,
-      customFontUrl
+    fontFiles[] {
+      fontFile {
+        asset->{
+          url,
+          extension
+        }
+      },
+      fontName,
+      fontWeight
     }
   }`;
 
@@ -42,14 +66,19 @@ export const useSettings = async (): Promise<Settings> => {
     return {
       ...settings,
       colorScheme: {
-        primary: settings.colorScheme?.primary || '#2563eb',
-        secondary: settings.colorScheme?.secondary || '#1e40af',
-        accent: settings.colorScheme?.accent || '#60a5fa'
+        textColor: settings.colorScheme?.textColor || '#000000',
+        backgroundColor: settings.colorScheme?.backgroundColor || '#ffffff',
+        foregroundColor: settings.colorScheme?.foregroundColor || '#f0f0f0',
+        primaryColor: settings.colorScheme?.primaryColor || '#2563eb',
+        secondaryColor: settings.colorScheme?.secondaryColor || '#1e40af',
+        accentColor: settings.colorScheme?.accentColor || '#60a5fa',
+        highlightColor: settings.colorScheme?.highlightColor || '#ffeb3b',
+        errorColor: settings.colorScheme?.errorColor || '#f44336',
+        successColor: settings.colorScheme?.successColor || '#4caf50',
+        warningColor: settings.colorScheme?.warningColor || '#ff9800',
+        borderColor: settings.colorScheme?.borderColor || '#e0e0e0',
+        cardBackgroundColor: settings.colorScheme?.cardBackgroundColor || '#ffffff',
       },
-      fonts: {
-        primary: settings.fonts?.primary || 'Inter',
-        customFontUrl: settings.fonts?.customFontUrl
-      }
     };
   } catch (error) {
     console.error('Error fetching site settings:', error);

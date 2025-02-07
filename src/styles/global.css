@@ -1,1 +1,30 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@theme {
+  --font-body: 'Sequel Sans', sans-serif;
+  --font-heading: 'Monument Extended', sans-serif;
+  
+  --color-text: var(--sanity-color-text, #000000);
+  --color-background: var(--sanity-color-background, #ffffff);
+  --color-foreground: var(--sanity-color-foreground, #f0f0f0);
+  --color-primary: var(--sanity-color-primary, #2563eb);
+  --color-secondary: var(--sanity-color-secondary, #1e40af);
+  --color-accent: var(--sanity-color-accent, #60a5fa);
+  --color-highlight: var(--sanity-color-highlight, #ffeb3b);
+  --color-error: var(--sanity-color-error, #f44336);
+  --color-success: var(--sanity-color-success, #4caf50);
+  --color-warning: var(--sanity-color-warning, #ff9800);
+  --color-border: var(--sanity-color-border, #e0e0e0);
+  --color-card-background: var(--sanity-color-card-background, #ffffff);
+  --color-piss: #4124f3;
+}
+
+@layer base {
+  body {
+    @apply font-body text-text bg-background;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}

@@ -1,29 +1,59 @@
 ---
-import { useSettings } from "../lib/queries/settings";
+import { useSettings } from '../lib/queries/settings'
+import '../styles/global.css'
 
-const settings = await useSettings();
+const settings = await useSettings()
 ---
-
 <style lang="postcss">
-  :root {
-    --primary: {settings.colorScheme.primary};
-    --secondary: {settings.colorScheme.secondary};
-    --accent: {setttings.colorScheme.accent};
+  /* Load fonts */
+  @font-face {
+    font-family: 'Sequel Sans';
+    src: url('/fonts/body/woff2/Sequel Sans Roman Body.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Sequel Sans';
+    src: url('/fonts/body/woff2/Sequel Sans Bold Body.woff2') format('woff2');
+    font-weight: 700;
   }
 
-  @import url('https://fonts.googleapis.com/css2?family={fonts.primary}&display=swap');
+  @font-face {
+    font-family: 'Monument Extended';
+    src: url('/fonts/heading/woff2/MonumentExtended-Regular.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Monument Extended';
+    src: url('/fonts/heading/woff2/MonumentExtended-Ultrabold.woff2') format('woff2');
+    font-weight: 800;
+  }
 
-  body {
-    font-family: '{fonts.primary}', sans-serif;
+  /* Set Sanity color variables */
+  :root {
+    --sanity-color-text: ${settings.colorScheme.textColor};
+    --sanity-color-background: ${settings.colorScheme.backgroundColor};
+    --sanity-color-foreground: ${settings.colorScheme.foregroundColor};
+    --sanity-color-primary: ${settings.colorScheme.primaryColor};
+    --sanity-color-secondary: ${settings.colorScheme.secondaryColor};
+    --sanity-color-accent: ${settings.colorScheme.accentColor};
+    --sanity-color-highlight: ${settings.colorScheme.highlightColor};
+    --sanity-color-error: ${settings.colorScheme.errorColor};
+    --sanity-color-success: ${settings.colorScheme.successColor};
+    --sanity-color-warning: ${settings.colorScheme.warningColor};
+    --sanity-color-border: ${settings.colorScheme.borderColor};
+    --sanity-color-card-background: ${settings.colorScheme.cardBackgroundColor};
   }
 </style>
 
 <div>
-  <h1>Theme Settings</h1>
-  <p>Primary Color: {settings.colorScheme.primary}</p>
-  <p>Secondary Color: {settings.colorScheme.secondary}</p>
-  <p>Accent Color: {settings.colorScheme.accent}</p>
-  <p>Primary Font: {settings.fonts.primary}</p>
+  <!-- Example usage -->
+  <div class="bg-accent text-background p-4">
+    This uses the Sanity accent color
+  </div>
+
+  <div class="size-10 bg-orange-400"></div>
+
+  <div class="size-10 bg-accent"></div>
   
   <slot />
 </div>
