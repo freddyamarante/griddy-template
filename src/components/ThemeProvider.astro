@@ -1,59 +1,95 @@
 ---
-import { useSettings } from '../lib/queries/settings'
-import '../styles/global.css'
-
-const settings = await useSettings()
+import { useSettings } from '../lib/queries/settings';
+const settings = await useSettings();
 ---
-<style lang="postcss">
-  /* Load fonts */
+
+<style is:global lang="postcss">
+  /* Sequel Sans Regular */
   @font-face {
     font-family: 'Sequel Sans';
     src: url('/fonts/body/woff2/Sequel Sans Roman Body.woff2') format('woff2');
     font-weight: 400;
+    font-style: normal;
   }
+
+  /* Sequel Sans Bold */
   @font-face {
     font-family: 'Sequel Sans';
     src: url('/fonts/body/woff2/Sequel Sans Bold Body.woff2') format('woff2');
     font-weight: 700;
+    font-style: normal;
   }
 
+  /* Sequel Sans Italic */
+  @font-face {
+    font-family: 'Sequel Sans';
+    src: url('/fonts/body/woff2/Sequel Sans Oblique Body.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* Sequel Sans Bold Italic */
+  @font-face {
+    font-family: 'Sequel Sans';
+    src: url('/fonts/body/woff2/Sequel Sans Bold Obl Body.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  /* Monument Extended */
   @font-face {
     font-family: 'Monument Extended';
     src: url('/fonts/heading/woff2/MonumentExtended-Regular.woff2') format('woff2');
     font-weight: 400;
+    font-style: normal;
   }
+
   @font-face {
     font-family: 'Monument Extended';
     src: url('/fonts/heading/woff2/MonumentExtended-Ultrabold.woff2') format('woff2');
     font-weight: 800;
+    font-style: normal;
   }
 
-  /* Set Sanity color variables */
   :root {
-    --sanity-color-text: ${settings.colorScheme.textColor};
-    --sanity-color-background: ${settings.colorScheme.backgroundColor};
-    --sanity-color-foreground: ${settings.colorScheme.foregroundColor};
-    --sanity-color-primary: ${settings.colorScheme.primaryColor};
-    --sanity-color-secondary: ${settings.colorScheme.secondaryColor};
-    --sanity-color-accent: ${settings.colorScheme.accentColor};
-    --sanity-color-highlight: ${settings.colorScheme.highlightColor};
-    --sanity-color-error: ${settings.colorScheme.errorColor};
-    --sanity-color-success: ${settings.colorScheme.successColor};
-    --sanity-color-warning: ${settings.colorScheme.warningColor};
-    --sanity-color-border: ${settings.colorScheme.borderColor};
-    --sanity-color-card-background: ${settings.colorScheme.cardBackgroundColor};
+    --font-body: 'Sequel Sans', sans-serif;
+    --font-heading: 'Monument Extended', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 400; /* Ensure the default weight is set */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-size: revert;
+    line-height: revert;
+    margin: revert;
   }
 </style>
 
 <div>
-  <!-- Example usage -->
-  <div class="bg-accent text-background p-4">
-    This uses the Sanity accent color
+  <h1>Theme Settings</h1>
+  <h2>Theme Settings</h2>
+  <h3>Theme Settings</h3>
+  <h4>Theme Settings</h4>
+  <h5>Theme Settings</h5>
+
+  <div class="flex flex-col flex-wrap gap-6 mx-4 mt-4 justify-center items-center">
+    <div class="w-10 h-10 rounded-md bg-primary"></div><span>Primary</span>
+    <div class="w-10 h-10 rounded-md bg-secondary"></div><span>Secondary</span>
+    <div class="w-10 h-10 rounded-md bg-accent"></div><span>Accent</span>
+    <div class="w-10 h-10 rounded-md bg-highlight"></div><span>Highlight</span>
+    <div class="w-10 h-10 rounded-md bg-error"></div><span>Error</span>
+    <div class="w-10 h-10 rounded-md bg-success"></div><span>Success</span>
+    <div class="w-10 h-10 rounded-md bg-warning"></div><span>Warning</span>
+    <div class="w-10 h-10 rounded-md bg-border"></div><span>Border</span>
+    <div class="w-10 h-10 rounded-md bg-card-background"></div><span>Card Background</span>
+    <div class="w-10 h-10 rounded-md bg-background"></div><span>Background</span>
+    <div class="w-10 h-10 rounded-md bg-foreground"></div><span>Foreground</span>
+    <div class="w-10 h-10 rounded-md bg-text"></div><span>Text</span>
   </div>
 
-  <div class="size-10 bg-orange-400"></div>
-
-  <div class="size-10 bg-accent"></div>
-  
   <slot />
 </div>
