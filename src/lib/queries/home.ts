@@ -1,25 +1,24 @@
 import { client, type SanityDocument } from "../client";
-
-export interface Section {
-  _type: string;
-  _key: string;
-  title: string;
-  description: string;
-}
+import type { Section } from "../sectionTypes";
 
 export interface Home extends SanityDocument {
   sections: Section[];
 }
 
 export const getHome = async (): Promise<Home> => {
-  const query = `*[_type == "home"] {
+  const query = `*[_type == "home"][0] {
     _id,
     _type,
     sections[] {
       _type,
       _key,
       title,
-      description
+      description,
+      settings {
+        hide,
+        padding,
+        customCss
+      }
     }
   }`;
 

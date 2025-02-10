@@ -17,9 +17,16 @@ export default defineType({
       type: 'image',
       options: { hotspot: true }
     }),
+    defineField({
+      name: 'spaceBetweenSections',
+      title: 'Space Between Sections',
+      type: 'number',
+      validation: Rule => Rule.min(0).max(1000)
+    })
   ],
   initialValue: {
     storeName: 'My Store',
+    spaceBetweenSections: 40
   },
   preview: {
     select: {

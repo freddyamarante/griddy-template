@@ -1,8 +1,13 @@
 ---
 import '../styles/global.css'
 import ThemeProvider from '../components/ThemeProvider.astro'
----
+import { useSettings } from '../lib/queries/settings'
 
+const settings = await useSettings()
+
+const spaceBetweenSections = `${settings.spaceBetweenSections || 24}px`
+
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -14,7 +19,15 @@ import ThemeProvider from '../components/ThemeProvider.astro'
 	</head>
 	<body>
 		<ThemeProvider>
-			<slot />
+			<style define:vars={{ spaceBetweenSections }}>
+				body {
+					--space-between-sections: var(--spaceBetweenSections);
+				}
+			</style>
+
+			<main class="flex flex-col grow gap-y-[calc(var(--space-between-sections)*.75)] sm:gap-y-[--space-between-sections]">
+				<slot />
+			</main>
 		</ThemeProvider>
 	</body>
 </html>

@@ -3,6 +3,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {colorInput} from '@sanity/color-input'
+import {codeInput} from '@sanity/code-input'
 import {sanityCommerce, type SanityCommercePluginConfig,} from '@commercelayer/sanity-plugin-commerce';
 import {inlineSvgInput} from '@focus-reactive/sanity-plugin-inline-svg-input'
 
@@ -43,6 +44,7 @@ export default defineConfig({
     inlineSvgInput(),
     visionTool(), 
     colorInput(),
+    codeInput(),
     sanityCommerce(sanityCommerceConfig)
   ],
 

@@ -2,8 +2,10 @@ import home from "./singletons/home";
 import siteSettings from "./singletons/settings";
 
 import sectionList from "./globals/sectionList";
+import sectionSettings from "./objects/sectionSettings";
 
 import heroSection from "./sections/heroSection";
+import padding from "./objects/padding";
 
 const sections: any[] = [
   heroSection
@@ -19,7 +21,9 @@ const singletons: any[] = [
 ]
 
 const objects: any[] = [
-  sectionList
+  sectionList,
+  sectionSettings,
+  padding
 ]
 
 const documents: any[] = [

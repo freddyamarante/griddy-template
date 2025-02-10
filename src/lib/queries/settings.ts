@@ -1,36 +1,19 @@
 // settings.ts
 import { client, type SanityDocument } from '../client';
 
-export interface FontFile {
-  fontFile: {
-    asset: {
-      url: string;
-      extension: string;
-    };
-  };
-  fontName: string;
-  fontWeight: number;
-}
-
 export interface Settings extends SanityDocument {
-  headingFontFiles: FontFile[];
-  secondaryFontFiles: FontFile[];
+  storeName: string;
+  logo: string;
+  spaceBetweenSections: number;
 }
 
 export const getSettings = async (): Promise<Settings> => {
-  const query = `*[_id == "settings"] {
-    _id,
-    _type,
-    fontFiles[] {
-      fontFile {
-        asset->{
-          url,
-          extension
-        }
-      },
-      fontName,
-      fontWeight
-    }
+  const query = `*[_id == "settings"][0] {
+      _id,
+      _type,
+      storeName,
+      logo,
+      spaceBetweenSections,
   }`;
 
   return client.fetch(query);

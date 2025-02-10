@@ -1,19 +1,36 @@
 ---
-import type { SanityDocument } from '@sanity/client';
+import type { SanityDocument } from '@sanity/client'
+import type { Section } from '../lib/sectionTypes'
 
-import {sections} from '../lib/sectionResolver'
+import { sections } from '../lib/sectionResolver'
 
-const { data } = Astro.props as { data: SanityDocument & { _type: keyof typeof sections } };
+const { data } = Astro.props as {
+  data: SanityDocument & { _type: keyof typeof sections } & Section
+}
 
-const SectionComponent = sections[data._type];
+const SectionComponent = sections[data._type]
 ---
 
-<section id={`section-${data._id}`} data-type={data._type}>
-  {SectionComponent ? (
-    <SectionComponent data={data} />
-  ) : (
-    <div class="missing-section">
-      <p>Section component for {data._type} not found</p>
-    </div>
-  )}
-</section>
+{ !data.settings.hide &&
+  (
+    <section
+      id={`section-${data._key}`}
+      data-section-type={data._type}
+      class="relative bg-background text-text"
+      style={`padding-top: ${data.settings?.padding?.top || 0}px; padding-bottom: ${data.settings?.padding?.bottom || 0}px;`}
+    >
+      {SectionComponent ? (
+        <SectionComponent data={data} />
+      ) : (
+        <div>
+          <p>Section component for {data._type} not found</p>
+        </div>
+      )}
+      
+    </section>
+  )
+}
+
+{data.settings?.customCss && (
+  <style scoped>{`${data.settings.customCss}`}</style>
+)}

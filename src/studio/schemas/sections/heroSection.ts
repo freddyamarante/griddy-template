@@ -1,21 +1,26 @@
-import { defineType } from 'sanity';
+import { defineField } from 'sanity';
 
-export default defineType({
+export default defineField({
   name: 'heroSection',
   title: 'Hero Section',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: Rule => Rule.required().max(100)
-    },
-    {
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'string',
       validation: Rule => Rule.max(200)
-    },
+    }),
+    defineField({
+      name: 'settings',
+      title: 'Settings',
+      type: 'sectionSettings'
+    })
   ]
 });
