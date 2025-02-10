@@ -13,20 +13,6 @@ export interface FontFile {
 }
 
 export interface Settings extends SanityDocument {
-  colorScheme: {
-    textColor: string;
-    backgroundColor: string;
-    foregroundColor: string;
-    primaryColor: string;
-    secondaryColor: string;
-    accentColor: string;
-    highlightColor: string;
-    errorColor: string;
-    successColor: string;
-    warningColor: string;
-    borderColor: string;
-    cardBackgroundColor: string;
-  };
   headingFontFiles: FontFile[];
   secondaryFontFiles: FontFile[];
 }

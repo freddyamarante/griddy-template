@@ -1,1 +1,5 @@
-export const globalSections = []
+export const globalSections = [
+  {
+    type: 'heroSection',
+  },
+]

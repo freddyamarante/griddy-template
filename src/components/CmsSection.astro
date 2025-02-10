@@ -1,15 +1,19 @@
 ---
-// import { useColorsCssVars } from "../lib/utils/hooks/useColorsCssVars";
+import type { SanityDocument } from '@sanity/client';
 
-const { data } = Astro.props;
-// const colorsCssVars = useColorsCssVars({ settings: data.settings });
+import {sections} from '../lib/sectionResolver'
+
+const { data } = Astro.props as { data: SanityDocument & { _type: keyof typeof sections } };
+
+const SectionComponent = sections[data._type];
 ---
 
-<section id={`section-${data._key}`} class="section-padding">
-  <!-- <style>
-    {colorsCssVars}
-  </style> -->
-  <!-- Render section content based on type -->
-
-  <!-- Add more section types as needed -->
+<section id={`section-${data._id}`} data-type={data._type}>
+  {SectionComponent ? (
+    <SectionComponent data={data} />
+  ) : (
+    <div class="missing-section">
+      <p>Section component for {data._type} not found</p>
+    </div>
+  )}
 </section>

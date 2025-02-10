@@ -12,7 +12,7 @@ export default defineConfig({
     sanity({
       projectId: 'jcexkvnt',
       dataset: 'development',
-      useCdn: false,
+      useCdn: true,
       studioBasePath: '/studio'
     }), 
     react()

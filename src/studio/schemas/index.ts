@@ -3,8 +3,10 @@ import siteSettings from "./singletons/settings";
 
 import sectionList from "./globals/sectionList";
 
-const sections: any[] = [
+import heroSection from "./sections/heroSection";
 
+const sections: any[] = [
+  heroSection
 ]
 
 const footers: any[] = [

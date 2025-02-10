@@ -1,7 +1,13 @@
 ---
+import CmsSection from '../components/CmsSection.astro';
 import Layout from '../layouts/Layout.astro';
+import { useHome } from '../lib/queries/home';
 
+const home = await useHome();
 ---
 
 <Layout>
+  {home[0].sections.map((section) => (
+    <CmsSection data={section} />
+  ))}
 </Layout>
