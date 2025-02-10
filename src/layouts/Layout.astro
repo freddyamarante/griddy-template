@@ -7,6 +7,16 @@ const settings = await useSettings()
 
 const spaceBetweenSections = `${settings.spaceBetweenSections || 24}px`
 
+const primary = settings.colorScheme.primary.hex;
+const secondary = settings.colorScheme.secondary.hex;
+const error = settings.colorScheme.error.hex;
+const success = settings.colorScheme.success.hex;
+const warning = settings.colorScheme.warning.hex;
+const border = settings.colorScheme.border.hex;
+const cardBackground = settings.colorScheme.cardBackground.hex;
+const text = settings.colorScheme.text.hex;
+const background = settings.colorScheme.background.hex;
+const foreground = settings.colorScheme.foreground.hex;
 ---
 <!doctype html>
 <html lang="en">
@@ -22,6 +32,29 @@ const spaceBetweenSections = `${settings.spaceBetweenSections || 24}px`
 			<style define:vars={{ spaceBetweenSections }}>
 				body {
 					--space-between-sections: var(--spaceBetweenSections);
+				}
+			</style>
+
+			<style define:vars={{ primary, secondary, error, success, warning, border, cardBackground, text, background, foreground }}>
+				@import "tailwindcss";
+
+				@theme inline {
+					--color-primary: var(--primary);     
+					--color-secondary: var(--secondary);   
+					--color-error: var(--error);         
+					--color-success: var(--success);      
+					--color-warning: var(--warning);   
+					--color-border: var(--border);
+					--color-card-background: var(--cardBackground);
+					--color-text: var(--text);
+					--color-background: var(--background);
+					--color-foreground: var(--foreground);
+				}
+
+				@layer base {
+					html {
+						@apply bg-background text-text;
+					}
 				}
 			</style>
 
