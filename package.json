@@ -13,19 +13,23 @@
     "@commercelayer/sanity-plugin-commerce": "^1.0.0",
     "@focus-reactive/sanity-plugin-inline-svg-input": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.2",
+    "@sanity/asset-utils": "^2.2.1",
     "@sanity/astro": "^3.1.11",
     "@sanity/client": "^6.27.2",
     "@sanity/code-input": "^5.1.2",
     "@sanity/color-input": "^4.0.3",
     "@sanity/icons": "^3.5.7",
+    "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.74.1",
     "@sanity/visual-editing": "^2.12.14",
     "@tailwindcss/vite": "^4.0.3",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "astro": "^5.2.5",
+    "astro-sanity-picture": "^0.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
     "input-slider": "^0.1.12",
     "lucide-react": "^0.475.0",
@@ -36,5 +40,8 @@
     "tailwind-merge": "^3.0.1",
     "tailwindcss": "^4.0.3",
     "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
   }
 }

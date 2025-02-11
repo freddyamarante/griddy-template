@@ -10,6 +10,13 @@ import {inlineSvgInput} from '@focus-reactive/sanity-plugin-inline-svg-input'
 import {schemaTypes} from './src/studio/schemas'
 import {structure} from './src/studio/structure'
 
+const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID || '';
+const dataset = import.meta.env.PUBLIC_SANITY_DATASET || '';
+
+if (!projectId || !dataset) {
+  throw new Error('Missing environment variable(s)');
+}
+
 const sanityCommerceConfig: SanityCommercePluginConfig = {
   productLabel: 'Coffee',
   variantLabel: 'Coffee Variant',
@@ -36,8 +43,8 @@ export default defineConfig({
   name: 'default',
   title: 'griddy-template',
 
-  projectId: 'jcexkvnt',
-  dataset: 'development',
+  projectId,
+  dataset,
 
   plugins: [
     structureTool({structure}), 

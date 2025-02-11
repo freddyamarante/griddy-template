@@ -20,6 +20,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.1.2
         version: 1.1.2(@types/react@19.0.8)(react@19.0.0)
+      '@sanity/asset-utils':
+        specifier: ^2.2.1
+        version: 2.2.1
       '@sanity/astro':
         specifier: ^3.1.11
         version: 3.1.11(@sanity/client@6.27.2)(@sanity/visual-editing@2.12.14(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8)(debug@4.4.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(astro@5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.3)(terser@5.38.0)(typescript@5.7.3)(yaml@2.7.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sanity@3.74.1(@emotion/is-prop-valid@1.2.2)(@types/babel__core@7.20.5)(@types/node@22.13.1)(@types/react@19.0.8)(jiti@2.4.2)(lightningcss@1.29.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(terser@5.38.0)(typescript@5.7.3)(yaml@2.7.0))
@@ -35,6 +38,9 @@ importers:
       '@sanity/icons':
         specifier: ^3.5.7
         version: 3.5.7(react@19.0.0)
+      '@sanity/image-url':
+        specifier: ^1.1.0
+        version: 1.1.0
       '@sanity/vision':
         specifier: ^3.74.1
         version: 3.74.1(@babel/runtime@7.26.7)(@codemirror/lint@6.8.4)(@codemirror/theme-one-dark@6.1.2)(@emotion/is-prop-valid@1.2.2)(codemirror@6.0.1)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
@@ -53,12 +59,18 @@ importers:
       astro:
         specifier: ^5.2.5
         version: 5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.3)(terser@5.38.0)(typescript@5.7.3)(yaml@2.7.0)
+      astro-sanity-picture:
+        specifier: ^0.2.0
+        version: 0.2.0(astro@5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.3)(terser@5.38.0)(typescript@5.7.3)(yaml@2.7.0))
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      embla-carousel-autoplay:
+        specifier: ^8.5.2
+        version: 8.5.2(embla-carousel@8.5.2)
       embla-carousel-react:
         specifier: ^8.5.2
         version: 8.5.2(react@19.0.0)
@@ -89,6 +101,10 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.0.3)
+    devDependencies:
+      vite:
+        specifier: ^6.1.0
+        version: 6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.38.0)(yaml@2.7.0)
 
 packages:
 
@@ -2341,6 +2357,11 @@ packages:
     resolution: {integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==}
     engines: {node: '>=4'}
 
+  astro-sanity-picture@0.2.0:
+    resolution: {integrity: sha512-n5cXxKl7j1GOVGXktTEtdnL2lsC+gmIgSNPtJ0uHz+/Vzd//i2bDzO9OPKcfhdIj8sU8j94VMSlblFcne5TrYQ==}
+    peerDependencies:
+      astro: '> 2.0.0'
+
   astro@5.2.5:
     resolution: {integrity: sha512-AYXyYkc+c5xbKTm48FyQA91y81nXyNPAaoyafR0LUugE4lAwuvIUcXDBfMzmbuP1lGRvsE33G2oypv6gbGaPFg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
@@ -2905,6 +2926,11 @@ packages:
 
   electron-to-chromium@1.5.92:
     resolution: {integrity: sha512-BeHgmNobs05N1HMmMZ7YIuHfYBGlq/UmvlsTgg+fsbFs9xVMj+xJHFg19GN04+9Q+r8Xnh9LXqaYIyEWElnNgQ==}
+
+  embla-carousel-autoplay@8.5.2:
+    resolution: {integrity: sha512-27emJ0px3q/c0kCHCjwRrEbYcyYUPfGO3g5IBWF1i7714TTzE6L9P81V6PHLoSMAKJ1aHoT2e7YFOsuFKCbyag==}
+    peerDependencies:
+      embla-carousel: 8.5.2
 
   embla-carousel-react@8.5.2:
     resolution: {integrity: sha512-Tmx+uY3MqseIGdwp0ScyUuxpBgx5jX1f7od4Cm5mDwg/dptEiTKf9xp6tw0lZN2VA9JbnVMl/aikmbc53c6QFA==}
@@ -8388,6 +8414,12 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+  astro-sanity-picture@0.2.0(astro@5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.3)(terser@5.38.0)(typescript@5.7.3)(yaml@2.7.0)):
+    dependencies:
+      '@sanity/image-url': 1.1.0
+      astro: 5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.3)(terser@5.38.0)(typescript@5.7.3)(yaml@2.7.0)
+      groq: 3.74.1
+
   astro@5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.3)(terser@5.38.0)(typescript@5.7.3)(yaml@2.7.0):
     dependencies:
       '@astrojs/compiler': 2.10.3
@@ -9044,6 +9076,10 @@ snapshots:
   eastasianwidth@0.2.0: {}
 
   electron-to-chromium@1.5.92: {}
+
+  embla-carousel-autoplay@8.5.2(embla-carousel@8.5.2):
+    dependencies:
+      embla-carousel: 8.5.2
 
   embla-carousel-react@8.5.2(react@19.0.0):
     dependencies:

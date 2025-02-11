@@ -18,6 +18,12 @@ export default defineField({
       validation: Rule => Rule.max(200)
     }),
     defineField({
+      name: 'carouselImages',
+      title: 'Carousel Images',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
+    }),
+    defineField({
       name: 'settings',
       title: 'Settings',
       type: 'sectionSettings'

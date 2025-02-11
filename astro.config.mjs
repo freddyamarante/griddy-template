@@ -6,12 +6,16 @@ import react from '@astrojs/react';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import { loadEnv } from "vite";
+
+const { SANITY_PROJECT_ID, SANITY_DATASET } = loadEnv(process.env.NODE_ENV || '', process.cwd(), "");
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     sanity({
-      projectId: 'jcexkvnt',
-      dataset: 'development',
+      projectId: SANITY_PROJECT_ID,
+      dataset: SANITY_DATASET,
       useCdn: true,
       studioBasePath: '/studio'
     }), 

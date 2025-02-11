@@ -9,17 +9,7 @@ export const getHome = async (): Promise<Home> => {
   const query = `*[_type == "home"][0] {
     _id,
     _type,
-    sections[] {
-      _type,
-      _key,
-      title,
-      description,
-      settings {
-        hide,
-        padding,
-        customCss
-      }
-    }
+    sections[]
   }`;
 
   return client.fetch(query);
