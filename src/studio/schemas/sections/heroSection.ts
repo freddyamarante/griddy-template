@@ -24,6 +24,12 @@ export default defineField({
       of: [{ type: 'image', options: { hotspot: true } }],
     }),
     defineField({
+      name: 'callToActionLabel',
+      title: 'Call to Action Label',
+      type: 'string',
+      validation: Rule => Rule.max(200)
+    }),
+    defineField({
       name: 'settings',
       title: 'Settings',
       type: 'sectionSettings'

@@ -22,6 +22,7 @@ export interface HeroSection {
   _key: string;
   title: string;
   description?: string;
+  callToActionLabel?: string;
   carouselImages: any[];
   settings: SectionSettings;
 }

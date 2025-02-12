@@ -90,6 +90,7 @@ export default defineType({
       error: '#C44536',
       success: '#2E9D63',
       warning: '#C47D0A',
+      button: '#373737',
       border: '#D6D4CB',
       cardBackground: '#121212',
       text: '#D6D4CB',

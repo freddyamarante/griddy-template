@@ -2,18 +2,25 @@
 import type { HeroSection } from "../../lib/sectionTypes";
 
 import InteractiveCarousel from "../InteractiveCarousel";
+import { Button } from "../ui/button";
 
 const data: HeroSection = Astro.props.data;
-const { title, description, carouselImages } = data;
+const { title, description, carouselImages, callToActionLabel } = data;
 ---
 
-<div class="w-screen h-[75vh] max-w-7xl mx-auto my-16">
+<div class="w-full h-[70vh] mx-auto my-16">
   <div class="flex flex-col h-full">
-    <h1 class="text-5xl font-bold tracking-wider">Donde la calle se encuentra con tus prendas</h1>
-    <p class="text-lg mt-4">Explora la cultura urbana a través del diseño</p>
+    {title && <h1 class="text-5xl font-bold tracking-wider">{title}</h1>}
+    {description && <p class="text-lg mt-4">{description}</p>}
 
-    <div class="relative rounded-3xl overflow-hidden w-full h-full mt-6">
-      <InteractiveCarousel imagesArray={carouselImages} client:load />
+    <div class="relative w-full h-full mt-6">
+      <div class="overflow-hidden w-full h-full rounded-3xl">
+        <InteractiveCarousel imagesArray={carouselImages} client:load />
+      </div>
+      <div class="absolute bottom-0 right-0 mb-2 mr-2 z-50">
+        <Button size="2xl" className="text-lg">
+          {callToActionLabel}
+        </Button>
     </div>
   </div>
 </div>

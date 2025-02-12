@@ -7,16 +7,17 @@ const settings = await useSettings()
 
 const spaceBetweenSections = `${settings.spaceBetweenSections || 24}px`
 
-const primary = settings.colorScheme.primary.hex;
-const secondary = settings.colorScheme.secondary.hex;
-const error = settings.colorScheme.error.hex;
-const success = settings.colorScheme.success.hex;
-const warning = settings.colorScheme.warning.hex;
-const border = settings.colorScheme.border.hex;
-const cardBackground = settings.colorScheme.cardBackground.hex;
-const text = settings.colorScheme.text.hex;
-const background = settings.colorScheme.background.hex;
-const foreground = settings.colorScheme.foreground.hex;
+const primary = settings.colorScheme.primary?.hex || '#C2C2C2';
+const secondary = settings.colorScheme.secondary?.hex || '#00CED1';
+const error = settings.colorScheme.error?.hex || '#C44536';
+const success = settings.colorScheme.success?.hex || '#2E9D63';
+const warning = settings.colorScheme.warning?.hex || '#C47D0A';
+const button = settings.colorScheme.button?.hex || '#373737';
+const border = settings.colorScheme.border?.hex || '#D6D4CB';
+const cardBackground = settings.colorScheme.cardBackground?.hex || '#121212';
+const text = settings.colorScheme.text?.hex || '#D6D4CB';
+const background = settings.colorScheme.background?.hex || '#121212';
+const foreground = settings.colorScheme.foreground?.hex || '#0E0E0E';
 ---
 <!doctype html>
 <html lang="en">
@@ -35,7 +36,7 @@ const foreground = settings.colorScheme.foreground.hex;
 				}
 			</style>
 
-			<style define:vars={{ primary, secondary, error, success, warning, border, cardBackground, text, background, foreground }}>
+			<style define:vars={{ primary, secondary, error, success, warning, button, border, cardBackground, text, background, foreground }}>
 				@import "tailwindcss";
 
 				@theme inline {
@@ -44,6 +45,7 @@ const foreground = settings.colorScheme.foreground.hex;
 					--color-error: var(--error);         
 					--color-success: var(--success);      
 					--color-warning: var(--warning);   
+					--color-button: var(--button);
 					--color-border: var(--border);
 					--color-card-background: var(--cardBackground);
 					--color-text: var(--text);
@@ -58,7 +60,7 @@ const foreground = settings.colorScheme.foreground.hex;
 				}
 			</style>
 
-			<main class="flex flex-col grow gap-y-[calc(var(--space-between-sections)*.75)] sm:gap-y-[--space-between-sections]">
+			<main class="flex flex-col grow gap-y-[calc(var(--space-between-sections)*.75)] sm:gap-y-[--space-between-sections] mx-6 sm:px-24">
 				<slot />
 			</main>
 		</ThemeProvider>

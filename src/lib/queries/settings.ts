@@ -38,6 +38,7 @@ export interface Settings extends SanityDocument {
     error: Color;
     success: Color;
     warning: Color;
+    button: Color,
     border: Color;
     cardBackground: Color;
     text: Color;
@@ -59,6 +60,7 @@ export const getSettings = async (): Promise<Settings> => {
         error,
         success,
         warning,
+        button,
         border,
         cardBackground,
         text,
