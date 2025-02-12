@@ -1,17 +1,20 @@
 ---
 import type { HeroSection } from "../../lib/sectionTypes";
+
 import InteractiveCarousel from "../InteractiveCarousel";
 
 const data: HeroSection = Astro.props.data;
 const { title, description, carouselImages } = data;
+
+console.log(data.carouselImages[0])
 ---
 
-<div class="w-screen h-screen p-10">
+<div class="w-screen h-[95vh] p-10">
   <div class="flex flex-col h-full">
     <h1 class="text-5xl font-bold tracking-wider">Donde la calle se encuentra con tus prendas</h1>
     <p class="text-lg mt-4">Explora la cultura urbana a través del diseño</p>
 
-    <div class="h-full">
+    <div class="relative rounded-3xl overflow-hidden w-full h-full mt-6">
       <InteractiveCarousel imagesArray={carouselImages} client:load />
     </div>
   </div>

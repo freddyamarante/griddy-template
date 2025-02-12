@@ -2,11 +2,10 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from 'embla-carousel-autoplay'
 import { SanityImage } from "./SanityImage";
+import NoiseLight from "./NoiseLight";
 
 interface Image {
   alt: string;
@@ -25,14 +24,13 @@ const InteractiveCarousel: React.FC<InteractiveCarouselProps> = ({ imagesArray }
           delay: 2000,
         }),
       ]}
-      className="w-full h-full">
-      <CarouselContent className="h-full w-full">
+      className="w-full h-full overflow-hidden">
+      <CarouselContent className="h-full w-full ml-0">
         {imagesArray && imagesArray.map((image, index) => (
-          <CarouselItem key={index} className="h-full w-full">
+          <CarouselItem key={index} className="h-full w-full pl-0 md:pl-0 lg:pl-0">
             <SanityImage
-              aspectRatio="square"
               className="size-full object-fill"
-              data={image ? { alt: image.alt, asset: { _ref: image.src, _type: "reference" } } : null}
+              data={image}
               loading="lazy"
               showBorder={false}
               showShadow={false}
@@ -40,8 +38,9 @@ const InteractiveCarousel: React.FC<InteractiveCarouselProps> = ({ imagesArray }
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-50">
+          <NoiseLight /> 
+        </div>
     </Carousel>
   );
 };
