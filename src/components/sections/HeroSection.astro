@@ -15,9 +15,9 @@ const { title, description, carouselImages, callToActionLabel } = data;
 
     <div class="relative w-full h-full mt-6">
       <div class="overflow-hidden w-full h-full rounded-3xl">
-        <InteractiveCarousel imagesArray={carouselImages} client:load />
+        <InteractiveCarousel imagesArray={carouselImages} client:visible />
       </div>
-      <div class="absolute bottom-0 right-0 mb-2 mr-2 z-50">
+      <div class="absolute bottom-0 right-0 mb-3 mr-3 z-50">
         <Button size="2xl" className="text-lg">
           {callToActionLabel}
         </Button>

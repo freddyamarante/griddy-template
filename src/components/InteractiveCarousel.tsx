@@ -33,7 +33,7 @@ const InteractiveCarousel: React.FC<InteractiveCarouselProps> = ({ imagesArray }
         {imagesArray && imagesArray.map((image, index) => (
           <CarouselItem key={index} className="h-full w-full pl-0 md:pl-0 lg:pl-0">
             <SanityImage
-             aspectRatio="16:9"
+             aspectRatio="16/9"
               className="size-full object-fill"
               data={image}
               loading="lazy"
