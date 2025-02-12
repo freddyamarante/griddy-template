@@ -5,11 +5,9 @@ import InteractiveCarousel from "../InteractiveCarousel";
 
 const data: HeroSection = Astro.props.data;
 const { title, description, carouselImages } = data;
-
-console.log(data.carouselImages[0])
 ---
 
-<div class="w-screen h-[95vh] p-10">
+<div class="w-screen h-[75vh] max-w-7xl mx-auto my-16">
   <div class="flex flex-col h-full">
     <h1 class="text-5xl font-bold tracking-wider">Donde la calle se encuentra con tus prendas</h1>
     <p class="text-lg mt-4">Explora la cultura urbana a través del diseño</p>
